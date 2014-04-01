@@ -1,13 +1,13 @@
 #!/bin/bash
 
-min_port=8914
-max_port=65535
+min_port=9874
+max_port=10000
 host_name='portquiz.net'
-time_out=6   #in secs
-sleep_time=1s
+time_out=10   #in secs
+sleep_time=0.3s
 
-echo -e "\ntesting \"$host_name\""
-echo -e "port range: {$min_port,$max_port}\n" 
+echo -e "\ntesting \"$host_name\"" 1>&2
+echo -e "port range: {$min_port,$max_port}\n" 1>&2
 
 for (( i=$min_port; i<=$max_port; i++ )) ; do
 	curl --silent --connect-timeout $time_out --output /dev/null $host_name:$i
