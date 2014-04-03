@@ -1,10 +1,19 @@
 #!/bin/bash
 
-min_port=9874
-max_port=10000
 host_name='portquiz.net'
-time_out=10   #in secs
+time_out=20   #in secs
 sleep_time=0.3s
+
+
+### Don't edit below this line ###
+
+if (( $# < 2 )) ; then
+	echo -e "\nUsage: $0 <start_port> <end_port> [\"> /dev/null\" | output_file]\n"
+	exit 1
+fi
+
+min_port=$1
+max_port=$2
 
 echo -e "\ntesting \"$host_name\"" 1>&2
 echo -e "port range: {$min_port,$max_port}\n" 1>&2
